@@ -6,14 +6,14 @@
  * This is your default layout file, variables in this file act as placeholders for named nested views
  *
  */
-?><!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+?>
 <div id="sf-wrap">
   <header>
     <div class="container">
       <div class="row">
         <div class="span4">
           <div class="logo">
-            <a href="">
+            <a href="/">
               <img src="<?php echo $this->imgUrl("/cubex-logo.png"); ?>" alt="Cubex Logo" />
             </a>
           </div>
@@ -21,11 +21,7 @@
         <div class="span8">
           <nav class="main pull-right">
             <ul class="inline nav strtoupper">
-              <li><a href="/get-started">Get Started</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/learn">Learn</a></li>
-              <li><a href="/docs">Docs</a></li>
-              <li><a href="/community">Community</a></li>
+              <?php echo $this->yield("mainNav", false); ?>
             </ul>
           </nav>
         </div>
@@ -39,15 +35,7 @@
         <div class="span12">
           <nav class="cubes">
             <ul class="inline nav strtoupper text-center">
-              <li><a href="/"><i class="icon-cubes-performance"></i><br />Performance</a></li>
-              <li><a href="/"><i class="icon-cubes-gitrepo"></i><br />Git Repo</a></li>
-              <li><a href="/"><i class="icon-cubes-web"></i><br />Web</a></li>
-              <li><a href="/"><i class="icon-cubes-caching"></i><br />Caching</a></li>
-              <li><a href="/"><i class="icon-cubes-database"></i><br />Database</a></li>
-              <li><a href="/"><i class="icon-cubes-scalable"></i><br />Scalable</a></li>
-              <li><a href="/"><i class="icon-cubes-modular"></i><br />Modular</a></li>
-              <li><a href="/"><i class="icon-cubes-cronjob"></i><br />Cron Job</a></li>
-              <li><a href="/"><i class="icon-cubes-translation"></i><br />Translation</a></li>
+              <?php echo $this->yield("cubesNav", false); ?>
             </ul>
           </nav>
         </div>
@@ -66,7 +54,7 @@
     <div class="container">
       <div class="row">
         <div class="span12">
-          Content will come here.          <?php /*echo $this->yield("content", "main-content");*/ ?>
+          <?php echo $this->yield("content", "main-content"); ?>
         </div>
       </div>
     </div>
