@@ -1,0 +1,13 @@
+{
+  "require":           {
+    "cubex/cubex":                  "*",
+    "mobiledetect/mobiledetectlib": "dev-master",
+    "onigoetz/phpseclib":           "dev-master"
+  },
+  "autoload":          {
+    "psr-0": {
+      "CubexIo\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
