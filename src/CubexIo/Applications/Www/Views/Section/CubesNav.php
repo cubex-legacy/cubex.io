@@ -5,13 +5,16 @@
 namespace CubexIo\Applications\Www\Views\Section;
 
 use Cubex\Core\Http\Request;
+use Cubex\View\HtmlElement;
+use Cubex\View\Impart;
 use Cubex\View\Partial;
+use Cubex\View\RenderGroup;
 use Cubex\View\ViewModel;
 
 class CubesNav extends ViewModel
 {
   private $_navItems = [
-    "performance"     => [
+    "performance" => [
       "href" => "performance",
       "name" => "Performance"
     ],
@@ -19,27 +22,27 @@ class CubesNav extends ViewModel
       "href" => "gitrepo",
       "name" => "Git Repo"
     ],
-    "web"     => [
+    "web"         => [
       "href" => "web",
       "name" => "Web"
     ],
-    "caching"      => [
+    "caching"     => [
       "href" => "caching",
       "name" => "Caching"
     ],
-    "database" => [
+    "database"    => [
       "href" => "database",
       "name" => "Database"
     ],
-    "scalable" => [
+    "scalable"    => [
       "href" => "scalable",
       "name" => "Scalable"
     ],
-    "modular" => [
+    "modular"     => [
       "href" => "modular",
       "name" => "Modular"
     ],
-    "cronjob" => [
+    "cronjob"     => [
       "href" => "cronjob",
       "name" => "Cron Job"
     ],
@@ -67,7 +70,7 @@ class CubesNav extends ViewModel
   public function render()
   {
     $nav = new Partial(
-      '<li class="%s"><a href="/cubes/%s"><i class="icon-cubes-%s"></i><br />'.
+      '<li class="%s"><a href="/cubes/%s"><i class="icon-cubes-%s"></i><br />' .
       '%s</a></li>'
     );
 
@@ -81,6 +84,29 @@ class CubesNav extends ViewModel
       $nav->addElement($class, $href, $icon, $name);
     }
 
-    return $nav;
+    $contain = (new HtmlElement("div", ['class' => 'row']))->nest(
+      (new HtmlElement('div', ['class' => 'span12']))->nest(
+        (new HtmlElement('nav', ['class' => 'cubes']))->nestElement(
+          'ul', ['class' => 'inline nav strtoupper text-center'], $nav
+        )
+      )
+    );
+
+    $link = new HtmlElement(
+      'a', [
+           'href'    => 'https://github.com/qbex/project',
+           'onclick' => 'window.open(this.href); return false;',
+           'class'   => 'btn btn-large btn-xlarge btn-warning strtoupper'
+           ],
+      'Download Cubex'
+    );
+
+    $downloadButton = (new HtmlElement("div", ['class' => 'row']))->nest(
+      (new HtmlElement('div', ['class' => 'span12']))->nest(
+        (new HtmlElement('div', ['class' => 'download text-center'], $link))
+      )
+    );
+
+    return new RenderGroup($contain, $downloadButton);
   }
 }

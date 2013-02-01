@@ -8,9 +8,6 @@ namespace CubexIo\Applications\Www\Controllers;
 
 use Cubex\Core\Controllers\WebpageController;
 use Cubex\View\Templates\Errors\Error404;
-use CubexIo\Applications\Www\Views\Cubes\Web;
-use CubexIo\Applications\Www\Views\Index;
-use CubexIo\Applications\Www\Views\Section\CubesNav;
 use CubexIo\Applications\Www\Views\Section\MainNav;
 
 abstract class BaseController extends WebpageController
@@ -35,10 +32,6 @@ abstract class BaseController extends WebpageController
   public function preRender()
   {
     $this->nest("mainNav", new MainNav($this->getRouteResult()));
-    $this->nest(
-      "cubesNav",
-      new CubesNav($this->request(), $this->getRouteResult())
-    );
   }
 
   public function renderNotFound()
