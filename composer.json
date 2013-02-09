@@ -1,6 +1,7 @@
 {
   "require":           {
     "cubex/cubex":                  "*",
+    "bundl/debugger":               "*",
     "mobiledetect/mobiledetectlib": "dev-master",
     "phpseclib/phpseclib":          "dev-master"
   },

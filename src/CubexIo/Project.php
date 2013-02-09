@@ -34,4 +34,12 @@ class Project extends \Cubex\Core\Project\Project
   {
     return new Applications\Www\WwwApplication();
   }
+
+  public function getBundles()
+  {
+    return [];
+    return [
+      'debugger' => new \Bundl\Debugger\DebuggerBundle()
+    ];
+  }
 }
