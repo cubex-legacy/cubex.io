@@ -1,18 +1,14 @@
 <?php
 /**
- * @author brooke.bryan
- * @author gareth.evans
+ * @author: brooke.bryan
+ *        Application: Documentor
  */
-
-namespace CubexIo\Applications\Www\Controllers;
+namespace CubexIo\Applications\Documentor\Controllers;
 
 use Cubex\Core\Controllers\WebpageController;
-use Cubex\View\Templates\Errors\Error404;
-use CubexIo\Applications\Www\Views\Section\MainNav;
 
 abstract class BaseController extends WebpageController
 {
-
   public function preProcess()
   {
     $this->requireCss(
@@ -29,19 +25,8 @@ abstract class BaseController extends WebpageController
     );
   }
 
-  public function preRender()
-  {
-    $this->nest("mainNav", new MainNav($this->getRouteResult()));
-  }
-
-  public function renderNotFound()
-  {
-    $this->webpage()->setStatusCode("404");
-    return new Error404();
-  }
-
   public function defaultAction()
   {
-    return "NotFound";
+    return "index";
   }
 }

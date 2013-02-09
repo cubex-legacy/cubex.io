@@ -1,4 +1,10 @@
 /* OVERRIDES */
+
+code
+{
+  display:block;
+}
+
 .lt-ie8 ul.inline > li,
 .lt-ie8 ol.inline > li {
   display: inline;
