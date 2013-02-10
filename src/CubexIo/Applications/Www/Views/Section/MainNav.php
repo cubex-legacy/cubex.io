@@ -11,23 +11,23 @@ class MainNav extends ViewModel
 {
   private $_navItems = [
     "index"     => [
-      "href" => "get-started",
+      "href" => "/get-started",
       "name" => "Get Started"
     ],
     "about"     => [
-      "href" => "about",
+      "href" => "/about",
       "name" => "About"
     ],
     "learn"     => [
-      "href" => "learn",
+      "href" => "/learn",
       "name" => "Learn"
     ],
     "docs"      => [
-      "href" => "docs",
+      "href" => "/docs",
       "name" => "Docs"
     ],
     "community" => [
-      "href" => "community",
+      "href" => "/community",
       "name" => "Community"
     ]
   ];
@@ -41,13 +41,14 @@ class MainNav extends ViewModel
 
   public function render()
   {
-    $nav = new Partial("<li class=\"%s\"><a href=\"/%s\">%s</a></li>");
+    $nav = new Partial("<li class=\"%s\"><a href=\"%s\">%s</a></li>");
 
     foreach($this->_navItems as $navItemKey => $navItem)
     {
-      $class = $navItemKey === $this->_routeResult ? "active" : "";
-      $href  = $navItem["href"];
-      $name  = $navItem["name"];
+      $active = strpos($this->request()->path(), $navItem["href"]) === 0;
+      $class  = $active ? "active" : "";
+      $href   = $navItem["href"];
+      $name   = $navItem["name"];
 
       $nav->addElement($class, $href, $name);
     }

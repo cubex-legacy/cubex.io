@@ -3,32 +3,35 @@
  * @author: brooke.bryan
  *        Application: Documentor
  */
-namespace CubexIo\Applications\Documentor\Views;
+namespace CubexIo\Applications\Www\Views;
 
 use Cubex\Container\Container;
 use Cubex\Form\Form;
 use Cubex\Form\FormElement;
 use Cubex\View\HtmlElement;
-use Cubex\View\Impart;
 use Cubex\View\Partial;
 use Cubex\View\ViewModel;
 use CubexIo\Components\Documentor\Mappers\Article;
 
-class Index extends ViewModel
+class Docs extends ViewModel
 {
   public function render()
   {
 
     $pat         = '';
     $parts       = explode('/', $this->request()->path());
-    $pathPartial = new Partial('<a href="%s">%s</a>');
-    $pathPartial->setGlue(" / ");
+    $pathPartial = new Partial('<li><a href="%s">%s</a>%s</li>', null, false);
     foreach($parts as $part)
     {
       if(!empty($part))
       {
         $pat .= '/' . $part;
-        $pathPartial->addElement($pat, $part);
+        $append = '';
+        if($pat != $this->request()->path())
+        {
+          $append = ' <span class="divider">/</span>';
+        }
+        $pathPartial->addElement($pat, ucwords($part), $append);
       }
     }
 
@@ -60,9 +63,9 @@ class Index extends ViewModel
     $this->setTitle($article->title);
 
     $output = new HtmlElement("div", ['class' => 'row-fluid']);
-    $output->renderBefore($pathPartial);
-    $output->renderBefore(new Impart("<hr/>"));
-
+    $output->renderBefore(
+      new HtmlElement('ul', ['class' => 'breadcrumb'], $pathPartial)
+    );
     $regex = $article->conn()->escapeString($article->slug);
 
     $articles = Article::collection();
@@ -72,7 +75,11 @@ class Index extends ViewModel
 
     $partial = new Partial('<li><a href="%s">%s</a></li>', null, false);
     $partial->addElements($articles->getKeyedArray("slug", ['slug', 'title']));
-    $output->nestElement('ul', ['class' => 'span2'], $partial);
+    $output->nestElement(
+      'ul',
+      ['class' => 'span2 nav nav-pills nav-stacked'],
+      $partial
+    );
 
     $output->nestElement(
       'div',

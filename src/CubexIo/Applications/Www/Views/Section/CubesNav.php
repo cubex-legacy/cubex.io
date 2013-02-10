@@ -87,7 +87,9 @@ class CubesNav extends ViewModel
     $contain = (new HtmlElement("div", ['class' => 'row']))->nest(
       (new HtmlElement('div', ['class' => 'span12']))->nest(
         (new HtmlElement('nav', ['class' => 'cubes']))->nestElement(
-          'ul', ['class' => 'inline nav strtoupper text-center'], $nav
+          'ul',
+          ['class' => 'inline nav strtoupper text-center'],
+          $nav
         )
       )
     );
@@ -107,6 +109,12 @@ class CubesNav extends ViewModel
       )
     );
 
-    return new RenderGroup($contain, $downloadButton);
+    $pre  = new Impart(
+      '<div class="row"><div class="span12"><nav class="cubes">' .
+      '<ul class="inline nav strtoupper text-center">'
+    );
+    $post = new Impart('</ul></nav></div></div>');
+
+    return new RenderGroup($pre, $contain, $downloadButton, $post);
   }
 }

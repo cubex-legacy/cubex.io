@@ -14,7 +14,8 @@
         <div class="span3">
           <div class="logo">
             <a href="/">
-              <img src="<?php echo $this->imgUrl("/cubex-logo.png"); ?>" alt="Cubex Logo" />
+              <img src="<?php echo $this->imgUrl("/cubex-logo.png"); ?>"
+                   alt="Cubex Logo"/>
             </a>
           </div>
         </div>
@@ -28,18 +29,12 @@
       </div>
       <div class="row">
         <div class="span12">
-          <h2 class="text-center">Simpler, faster and less of it.</h2>
+          <h2 class="text-center"><?php
+            echo $this->getStr("caption", "The Creativity Framework");
+            ?></h2>
         </div>
       </div>
-      <div class="row">
-        <div class="span12">
-          <nav class="cubes">
-            <ul class="inline nav strtoupper text-center">
-              <?php echo $this->renderNest("cubesNav", false); ?>
-            </ul>
-          </nav>
-        </div>
-      </div>
+      <?php echo $this->renderNest("cubesNav", false); ?>
     </div>
   </header>
 
@@ -62,7 +57,7 @@
   <div class="container">
     <div class="row">
       <div class="span10 offset1">
-        &copy; Cubex
+        &copy; Just Develop It Ltd
       </div>
     </div>
   </div>

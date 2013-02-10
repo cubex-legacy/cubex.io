@@ -104,15 +104,15 @@ nav.main ul.inline > li {
   padding-left: 20px;
 }
 
-.nav > li > a {
+header .nav > li > a {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   color: #30719c;
   text-shadow: 0 1px 0 #67b5e4;
 }
 
-.nav > li > a:hover,
-.nav > li.active > a {
+header .nav > li > a:hover,
+header .nav > li.active > a {
   background-color: transparent;
   color: #fff;
   text-shadow: 0 1px 0 #3f8dc5;
@@ -127,21 +127,6 @@ header h2 {
   margin-top: 15px;
 }
 
-nav.cubes {
-  margin-top: 18px;
-}
-
-nav.cubes ul.inline > li {
-  padding-right: 12px;
-  padding-left: 12px;
-  line-height: 25px;
-}
-
-.lt-ie9 nav.cubes ul.inline > li {
-  padding-right: 8px;
-  padding-left: 8px;
-}
-
 header .download {
   margin-top: 14px;
 }
@@ -150,94 +135,4 @@ header .download a,
 header .download a:hover {
   color: #c04d27;
   text-shadow: 0 2px 0 #fbbc6f;
-}
-
-/** NAV SPRITE */
-.nav > li > a > [class^="icon-cubes-"],
-.nav > li > a > [class*=" icon-cubes-"] {
-  background-image: url(/icons-cubes-sprite.png);
-  width: 64px;
-  height: 64px;
-  margin: 0;
-}
-
-.icon-cubes-performance {
-  background-position: 0 0;
-}
-
-.icon-cubes-gitrepo {
-  background-position: 0 -64px;
-}
-
-.icon-cubes-web {
-  background-position: 0 -128px;
-}
-
-.icon-cubes-caching {
-  background-position: 0 -192px;
-}
-
-.icon-cubes-database {
-  background-position: 0 -256px;
-}
-
-.icon-cubes-scalable {
-  background-position: 0 -320px;
-}
-
-.icon-cubes-modular {
-  background-position: 0 -384px;
-}
-
-.icon-cubes-cronjob {
-  background-position: 0 -448px;
-}
-
-.icon-cubes-translation {
-  background-position: 0 -512px;
-}
-
-a:hover > .icon-cubes-performance,
-.active > a > .icon-cubes-performance {
-  background-position: -64px 0;
-}
-
-a:hover > .icon-cubes-gitrepo,
-.active > a > .icon-cubes-gitrepo {
-  background-position: -64px -64px;
-}
-
-a:hover > .icon-cubes-web,
-.active > a > .icon-cubes-web {
-  background-position: -64px -128px;
-}
-
-a:hover > .icon-cubes-caching,
-.active > a > .icon-cubes-caching {
-  background-position: -64px -192px;
-}
-
-a:hover > .icon-cubes-database,
-.active > a > .icon-cubes-database {
-  background-position: -64px -256px;
-}
-
-a:hover > .icon-cubes-scalable,
-.active > a > .icon-cubes-scalable {
-  background-position: -64px -320px;
-}
-
-a:hover > .icon-cubes-modular,
-.active > a > .icon-cubes-modular {
-  background-position: -64px -384px;
-}
-
-a:hover > .icon-cubes-cronjob,
-.active > a > .icon-cubes-cronjob {
-  background-position: -64px -448px;
-}
-
-a:hover > .icon-cubes-translation,
-.active > a > .icon-cubes-translation {
-  background-position: -64px -512px;
 }

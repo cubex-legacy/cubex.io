@@ -18,15 +18,6 @@ class Project extends \Cubex\Core\Project\Project
     return "Public Cubex Website";
   }
 
-  public function getBySubDomainAndPath($subdomain, $path)
-  {
-    if(in_array('docs', [$subdomain, substr($path, 1, 4)]))
-    {
-      return new Applications\Documentor\Documentor();
-    }
-    return null;
-  }
-
   /**
    * @return \Cubex\Core\Application\Application
    */
