@@ -11,7 +11,7 @@ use Cubex\View\Partial;
 use Cubex\View\RenderGroup;
 use Cubex\View\ViewModel;
 
-class CubesNav extends ViewModel
+class HomeCubes extends ViewModel
 {
   private $_navItems = [
     "performance" => [

@@ -7,7 +7,7 @@ namespace CubexIo\Applications\Www\Controllers;
 
 use CubexIo\Applications\Www\Views\Docs;
 use CubexIo\Applications\Www\Views\Index;
-use CubexIo\Applications\Www\Views\Section\CubesNav;
+use CubexIo\Applications\Www\Views\Section\HomeCubes;
 
 class DefaultController extends BaseController
 {
@@ -16,7 +16,7 @@ class DefaultController extends BaseController
     $this->requireCss("home");
     $this->nest(
       "cubesNav",
-      new CubesNav($this->request(), $this->getRouteResult())
+      new HomeCubes($this->request(), $this->getRouteResult())
     );
     return new Index();
   }
