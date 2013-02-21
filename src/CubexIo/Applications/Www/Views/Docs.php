@@ -8,6 +8,7 @@ namespace CubexIo\Applications\Www\Views;
 use Cubex\Container\Container;
 use Cubex\Form\Form;
 use Cubex\Form\FormElement;
+use Cubex\Foundation\Config\Config;
 use Cubex\View\HtmlElement;
 use Cubex\View\Partial;
 use Cubex\View\ViewModel;
@@ -17,6 +18,9 @@ class Docs extends ViewModel
 {
   public function render()
   {
+
+    $showEdit = Container::config()->get("docs", new Config())
+    ->getBool("allow_edit", false);
 
     $pat         = '';
     $parts       = explode('/', $this->request()->path());
@@ -46,17 +50,20 @@ class Docs extends ViewModel
 
     $article->slug = $this->request()->path();
 
-    $form = new Form("");
-    $form->bindMapper($article);
-    $form->get("content")
-    ->addAttribute("rows", 15)
-    ->addAttribute("class", "span12")
-    ->setType(FormElement::TEXTAREA);
-
-    if($form->isValid() && $this->request()->isForm())
+    if($showEdit)
     {
-      $form->hydrate($this->request()->postVariables());
-      $form->saveChanges();
+      $form = new Form("");
+      $form->bindMapper($article);
+      $form->get("content")
+      ->addAttribute("rows", 15)
+      ->addAttribute("class", "span12")
+      ->setType(FormElement::TEXTAREA);
+
+      if($form->isValid() && $this->request()->isForm())
+      {
+        $form->hydrate($this->request()->postVariables());
+        $form->saveChanges();
+      }
     }
 
     $producer = new \Cubex\Remarkup\Producer($article->content);
@@ -83,14 +90,18 @@ class Docs extends ViewModel
 
     $output->nestElement(
       'div',
-      ['class' => 'span5', 'id' => 'producer'],
+      ['class' => 'span' . ($showEdit ? 5 : 10), 'id' => 'producer'],
       $producer
     );
-    $output->nestElement(
-      'div',
-      ['class' => 'span5'],
-      ('<h3>Update This Page</h3>' . $form->render())
-    );
+
+    if($showEdit)
+    {
+      $output->nestElement(
+        'div',
+        ['class' => 'span5'],
+        ('<h3>Update This Page</h3>' . $form->render())
+      );
+    }
 
     return $output;
   }
