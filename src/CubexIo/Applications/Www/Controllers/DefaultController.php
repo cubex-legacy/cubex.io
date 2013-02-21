@@ -5,8 +5,10 @@
 
 namespace CubexIo\Applications\Www\Controllers;
 
+use Cubex\View\RenderGroup;
 use CubexIo\Applications\Www\Views\Docs;
 use CubexIo\Applications\Www\Views\Index;
+use CubexIo\Applications\Www\Views\Section\DownloadButton;
 use CubexIo\Applications\Www\Views\Section\HomeCubes;
 
 class DefaultController extends BaseController
@@ -16,7 +18,10 @@ class DefaultController extends BaseController
     $this->requireCss("home");
     $this->nest(
       "cubesNav",
-      new HomeCubes($this->request(), $this->getRouteResult())
+      new RenderGroup(
+        new HomeCubes($this->request(), $this->getRouteResult()),
+        new DownloadButton()
+      )
     );
     return new Index();
   }

@@ -84,7 +84,7 @@ class HomeCubes extends ViewModel
       $nav->addElement($class, $href, $icon, $name);
     }
 
-    $contain = (new HtmlElement("div", ['class' => 'row']))->nest(
+    return (new HtmlElement("div", ['class' => 'row']))->nest(
       (new HtmlElement('div', ['class' => 'span12']))->nest(
         (new HtmlElement('nav', ['class' => 'cubes']))->nestElement(
           'ul',
@@ -93,28 +93,5 @@ class HomeCubes extends ViewModel
         )
       )
     );
-
-    $link = new HtmlElement(
-      'a', [
-           'href'    => 'https://github.com/qbex/project',
-           'onclick' => 'window.open(this.href); return false;',
-           'class'   => 'btn btn-large btn-xlarge btn-warning strtoupper'
-           ],
-      'Download Cubex'
-    );
-
-    $downloadButton = (new HtmlElement("div", ['class' => 'row']))->nest(
-      (new HtmlElement('div', ['class' => 'span12']))->nest(
-        (new HtmlElement('div', ['class' => 'download text-center'], $link))
-      )
-    );
-
-    $pre  = new Impart(
-      '<div class="row"><div class="span12"><nav class="cubes">' .
-      '<ul class="inline nav strtoupper text-center">'
-    );
-    $post = new Impart('</ul></nav></div></div>');
-
-    return new RenderGroup($pre, $contain, $downloadButton, $post);
   }
 }
