@@ -42,11 +42,7 @@ class Docs extends ViewModel
     /**
      * @var $article Article
      */
-    $article = Article::loadWhereOrNew(
-      "%C = %s",
-      "slug",
-      $this->request()->path()
-    );
+    $article = Article::loadWhereOrNew(["slug" => $this->request()->path()]);
 
     $article->slug = $this->request()->path();
 
