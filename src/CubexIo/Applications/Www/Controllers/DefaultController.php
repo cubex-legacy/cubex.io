@@ -6,6 +6,7 @@
 namespace CubexIo\Applications\Www\Controllers;
 
 use Cubex\View\RenderGroup;
+use CubexIo\Applications\Www\Views\About;
 use CubexIo\Applications\Www\Views\Docs;
 use CubexIo\Applications\Www\Views\Index;
 use CubexIo\Applications\Www\Views\Section\DownloadButton;
@@ -30,6 +31,11 @@ class DefaultController extends BaseController
   {
     $this->layout()->setData("caption", "Cubex Documentation");
     return new Docs();
+  }
+
+  public function renderAbout()
+  {
+    return new About();
   }
 
   public function getRoutes()
