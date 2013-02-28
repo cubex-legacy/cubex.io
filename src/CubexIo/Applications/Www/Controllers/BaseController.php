@@ -15,7 +15,10 @@ abstract class BaseController extends WebpageController
 
   public function preProcess()
   {
-    $this->addMeta("google-site-verification","OMmhqGbIMw4L8Es3hOT4fLs_44nBVI3aJ3MsYUCYy6c");
+    $this->addMeta(
+      "google-site-verification",
+      "OMmhqGbIMw4L8Es3hOT4fLs_44nBVI3aJ3MsYUCYy6c"
+    );
     $this->requireCss(
       "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/" .
       "bootstrap-combined.min.css"
