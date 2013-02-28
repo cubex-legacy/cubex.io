@@ -40,7 +40,11 @@ class Docs extends ViewModel
         {
           $append = ' <span class="divider">/</span>';
         }
-        $pathPartial->addElement($pat, ucwords($part), $append);
+        $pathPartial->addElement(
+          $pat,
+          ucwords(implode(" ", explode('-', $part))),
+          $append
+        );
       }
     }
 
