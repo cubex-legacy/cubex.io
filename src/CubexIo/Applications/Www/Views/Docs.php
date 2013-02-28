@@ -6,6 +6,7 @@
 namespace CubexIo\Applications\Www\Views;
 
 use Cubex\Container\Container;
+use Cubex\Facade\FeatureSwitch;
 use Cubex\Form\Form;
 use Cubex\Form\FormElement;
 use Cubex\Foundation\Config\Config;
@@ -21,6 +22,10 @@ class Docs extends ViewModel
 
     $showEdit = Container::config()->get("docs", new Config())
     ->getBool("allow_edit", false);
+    if(!$showEdit)
+    {
+      $showEdit = FeatureSwitch::isEnabled("allow_edit", "cookiefsw");
+    }
 
     $pat         = '';
     $parts       = explode('/', $this->request()->path());
