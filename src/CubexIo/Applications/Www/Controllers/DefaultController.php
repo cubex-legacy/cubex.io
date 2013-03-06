@@ -44,7 +44,6 @@ class DefaultController extends BaseController
       "/$"           => "index",
       "/get-started" => "index",
       "/about"       => "about",
-      "/learn"       => "learn",
       "/docs"        => "docs",
       "/community"   => "community"
     );

@@ -19,8 +19,8 @@ class MainNav extends ViewModel
       "name" => "About"
     ],
     "learn"     => [
-      "href" => "/learn",
-      "name" => "Learn"
+      "href" => "http://api.cubex.io",
+      "name" => "API Docs"
     ],
     "docs"      => [
       "href" => "/docs",
