@@ -41,11 +41,12 @@ class DefaultController extends BaseController
   public function getRoutes()
   {
     return array(
-      "/(|get-started)" => "index",
-      "/about"          => "about",
-      "/learn"          => "learn",
-      "/docs"           => "docs",
-      "/community"      => "community"
+      "/$"           => "index",
+      "/get-started" => "index",
+      "/about"       => "about",
+      "/learn"       => "learn",
+      "/docs"        => "docs",
+      "/community"   => "community"
     );
   }
 }
