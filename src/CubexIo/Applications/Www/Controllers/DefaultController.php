@@ -5,6 +5,7 @@
 
 namespace CubexIo\Applications\Www\Controllers;
 
+use Cubex\Facade\Redirect;
 use Cubex\View\RenderGroup;
 use CubexIo\Applications\Www\Views\About;
 use CubexIo\Applications\Www\Views\Docs;
@@ -42,6 +43,11 @@ class DefaultController extends BaseController
   public function renderLicence()
   {
     return new Licence();
+  }
+
+  public function renderCommunity()
+  {
+    Redirect::to("http://phabricator.cubex.io/")->now();
   }
 
   public function getRoutes()
