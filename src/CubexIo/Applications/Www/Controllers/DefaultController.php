@@ -45,11 +45,6 @@ class DefaultController extends BaseController
     return new Licence();
   }
 
-  public function renderCommunity()
-  {
-    Redirect::to("http://phabricator.cubex.io/")->now();
-  }
-
   public function getRoutes()
   {
     return array(
@@ -58,7 +53,8 @@ class DefaultController extends BaseController
       "/about"       => "about",
       "/docs"        => "docs",
       "/licen(c|s)e" => "licence",
-      "/community"   => "community"
+      "/community"   => "http://phabricator.cubex.io/",
+      "/blog"        => "http://blog.cubex.io/",
     );
   }
 }

@@ -26,6 +26,10 @@ class MainNav extends ViewModel
       "href" => "/docs",
       "name" => "Docs"
     ],
+    "blog"      => [
+      "href" => "/blog",
+      "name" => "Blog"
+    ],
     "community" => [
       "href" => "/community",
       "name" => "Community"
