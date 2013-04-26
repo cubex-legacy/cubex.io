@@ -51,7 +51,7 @@ class DefaultController extends BaseController
       "/$"           => "index",
       "/get-started" => "index",
       "/about"       => "about",
-      "/docs"        => "docs",
+      "/docs(.*)"    => "docs",
       "/licen(c|s)e" => "licence",
       "/community"   => "http://phabricator.cubex.io/",
       "/blog"        => "http://blog.cubex.io/",
