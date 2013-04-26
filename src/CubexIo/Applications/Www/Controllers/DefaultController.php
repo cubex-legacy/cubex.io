@@ -9,6 +9,7 @@ use Cubex\View\RenderGroup;
 use CubexIo\Applications\Www\Views\About;
 use CubexIo\Applications\Www\Views\Docs;
 use CubexIo\Applications\Www\Views\Index;
+use CubexIo\Applications\Www\Views\Licence;
 use CubexIo\Applications\Www\Views\Section\DownloadButton;
 use CubexIo\Applications\Www\Views\Section\HomeCubes;
 
@@ -38,6 +39,11 @@ class DefaultController extends BaseController
     return new About();
   }
 
+  public function renderLicence()
+  {
+    return new Licence();
+  }
+
   public function getRoutes()
   {
     return array(
@@ -45,6 +51,7 @@ class DefaultController extends BaseController
       "/get-started" => "index",
       "/about"       => "about",
       "/docs"        => "docs",
+      "/licen(c|s)e" => "licence",
       "/community"   => "community"
     );
   }
