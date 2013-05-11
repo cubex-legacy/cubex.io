@@ -1,14 +1,13 @@
 /* OVERRIDES */
 
-code
-{
-  display:block;
+code {
+  display: block;
 }
 
 .lt-ie8 ul.inline > li,
 .lt-ie8 ol.inline > li {
   display: inline;
-  zoom: 1;
+  zoom:    1;
 }
 
 .lt-ie8 .nav > li > a:hover {
@@ -16,10 +15,10 @@ code
 }
 
 .btn-xlarge {
-  font-size: 25px;
+  font-size:   25px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  padding: 14px 28px 15px;
+  padding:     14px 28px 15px;
 }
 
 body {
@@ -37,16 +36,16 @@ body {
 
 .ir {
   background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  *text-indent: -9999px;
+  border:           0;
+  overflow:         hidden;
+  *text-indent:     -9999px;
 }
 
 .ir:before {
   content: "";
   display: block;
-  width: 0;
-  height: 100%;
+  width:   0;
+  height:  100%;
 }
 
 /** STICKY FOOTER */
@@ -57,29 +56,31 @@ body {
 
 #sf-wrap {
   min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -30px;
+  height:     auto !important;
+  height:     100%;
+  margin:     0 auto -170px;
 }
 
-#sf-push,
+#sf-push {
+  height: 170px;
+}
+
 footer {
-  height: 30px;
+  height: 155px;
 }
 
 /** GLOBAL STYLES */
 header {
-  background: repeat center top, no-repeat center top;
+  background:       repeat center top, no-repeat center top;
   background-color: #4099d4;
   background-image: url(/watermark.png), url(/highlight.png);
-  background-image: url(/watermark.png), -webkit-radial-gradient(center top, circle farthest-corner, rgba(137,206,242,1) 0%,rgba(255,255,255,0) 100%);
-  background-image: url(/watermark.png),    -moz-radial-gradient(center top, circle farthest-corner, rgba(137,206,242,1) 0%, rgba(255,255,255,0) 100%);
-  background-image: url(/watermark.png),     -ms-radial-gradient(center top, circle farthest-corner, rgba(137,206,242,1) 0%,rgba(255,255,255,0) 100%);
-  background-image: url(/watermark.png),      -o-radial-gradient(center top, circle farthest-corner, rgba(137,206,242,1) 0%,rgba(255,255,255,0) 100%);
-  background-image: url(/watermark.png),        -webkit-gradient(radial, center top, 0, center top, 100%, color-stop(0%,rgba(137,206,242,1)), color-stop(100%,rgba(255,255,255,0)));
-  background-image: url(/watermark.png),         radial-gradient(circle farthest-corner as center top, rgba(137,206,242,1) 0%,rgba(255,255,255,0) 100%);
-
-  padding-bottom: 26px;
+  background-image: url(/watermark.png), -webkit-radial-gradient(center top, circle farthest-corner, rgba(137, 206, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: url(/watermark.png), -moz-radial-gradient(center top, circle farthest-corner, rgba(137, 206, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: url(/watermark.png), -ms-radial-gradient(center top, circle farthest-corner, rgba(137, 206, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: url(/watermark.png), -o-radial-gradient(center top, circle farthest-corner, rgba(137, 206, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: url(/watermark.png), -webkit-gradient(radial, center top, 0, center top, 100%, color-stop(0%, rgba(137, 206, 242, 1)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: url(/watermark.png), radial-gradient(circle farthest-corner as center top, rgba(137, 206, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  padding-bottom:   26px;
 }
 
 .lt-ie9 header {
@@ -88,7 +89,7 @@ header {
 
 header .logo {
   margin-top: 26px;
-  opacity: 0.8;
+  opacity:    0.8;
 }
 
 header .logo:hover {
@@ -101,30 +102,30 @@ nav.main {
 
 nav.main ul.inline > li {
   padding-right: 20px;
-  padding-left: 20px;
+  padding-left:  20px;
 }
 
 header .nav > li > a {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  color: #30719c;
+  color:       #30719c;
   text-shadow: 0 1px 0 #67b5e4;
 }
 
 header .nav > li > a:hover,
 header .nav > li.active > a {
   background-color: transparent;
-  color: #fff;
-  text-shadow: 0 1px 0 #3f8dc5;
+  color:            #fff;
+  text-shadow:      0 1px 0 #3f8dc5;
 }
 
 header h2 {
   font-family: Calibri, 'Open Sans', sans-serif;
   font-weight: 400;
-  color: #fff;
+  color:       #fff;
   text-shadow: 0 2px 0 #3b8ec8;
-  font-size: 53px;
-  margin-top: 15px;
+  font-size:   53px;
+  margin-top:  15px;
 }
 
 header .download {
@@ -133,17 +134,27 @@ header .download {
 
 header .download a,
 header .download a:hover {
-  color: #c04d27;
+  color:       #c04d27;
   text-shadow: 0 2px 0 #fbbc6f;
 }
 
-
-
-textarea,input
-{
-  width:100%;
+textarea, input {
+  width: 100%;
 }
 
-textarea{
-  height:600px;
+textarea {
+  height: 600px;
+}
+
+footer {
+  background:  #E9E9E9;
+  font-size:   11px;
+  padding-top: 14px;
+  border-top:1px solid #CCC;
+}
+
+footer hr{
+  border:0;
+  border-top:1px solid #CCC;
+  margin:5px 0;
 }

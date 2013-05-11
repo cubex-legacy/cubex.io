@@ -56,8 +56,39 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="span12">
-        &copy; Just Develop It Ltd | <a href="/licence">Licence Information</a>
+      <div class="offset2 span2">
+        <strong>Resources</strong><br/>
+        <a href="http://www.github.com/qbex/Cubex">Source on GitHub</a><br/>
+        <a href="irc://chat.freenode.net/cubex">IRC Channel</a><br/>
+        <a href="http://phabricator.cubex.io/maniphest/task/create/">
+          Report Bugs</a><br/>
+        <a href="/licence">Licence Information</a>
+      </div>
+      <div class="span2">
+        <strong>Documentation</strong><br/>
+        <a href="/docs">Cubex Docs</a><br/>
+        <a href="http://api.cubex.io">Cubex API Docs</a><br/>
+      </div>
+      <div class="span2">
+        <strong>Source Groups</strong><br/>
+        <a href="https://github.com/qbex">Qbex on GitHub</a><br/>
+        <a href="https://github.com/qubes">Qubes on GitHub</a><br/>
+        <a href="https://github.com/bundl">Bundls on GitHub</a><br/>
+      </div>
+      <div class="span2">
+        <strong>Participate</strong><br/>
+        <a href="http://blog.cubex.io">Cubex Blog</a><br/>
+        <a href="https://twitter.com/cubexio">Cubex on Twitter</a><br/>
+        <a href="http://phabricator.cubex.io/maniphest/task/create/">
+          Request Features</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="offset2 span8 text-center">
+        <hr/>
+        Copyright (c) 2012-<?php echo date("Y"); ?>,
+        Just Develop It Ltd.
+        All Rights Reserved
       </div>
     </div>
   </div>
@@ -66,13 +97,28 @@
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38891222-1']);
-  _gaq.push(['_trackPageview']);
+  _gaq.push(
+  ['_setAccount', 'UA-38891222-1']
+  );
+  _gaq.push(
+  ['_trackPageview']
+  );
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  (function ()
+  {
+    var ga = document.createElement(
+    'script'
+    );
+    ga.type = 'text/javascript';
+    ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    var s = document.getElementsByTagName(
+    'script'
+    )[0];
+    s.parentNode.insertBefore(
+    ga, s
+    );
+  })(
+  );
 
 </script>

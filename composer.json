@@ -2,6 +2,7 @@
   "require":           {
     "cubex/cubex":                  "*",
     "bundl/debugger":               "*",
+    "dflydev/markdown":             "*",
     "mobiledetect/mobiledetectlib": "dev-master",
     "phpseclib/phpseclib":          "dev-master"
   },

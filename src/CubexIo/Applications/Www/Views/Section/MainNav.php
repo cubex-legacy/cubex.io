@@ -10,29 +10,25 @@ use Cubex\View\ViewModel;
 class MainNav extends ViewModel
 {
   private $_navItems = [
-    "index"     => [
-      "href" => "/get-started",
-      "name" => "Get Started"
+    "index" => [
+      "href" => "/",
+      "name" => "Home"
     ],
-    "about"     => [
+    "about" => [
       "href" => "/about",
       "name" => "About"
     ],
-    "learn"     => [
+    "docs"  => [
+      "href" => "/docs",
+      "name" => "Documentation"
+    ],
+    "learn" => [
       "href" => "http://api.cubex.io",
       "name" => "API Docs"
     ],
-    "docs"      => [
-      "href" => "/docs",
-      "name" => "Docs"
-    ],
-    "blog"      => [
+    "blog"  => [
       "href" => "/blog",
       "name" => "Blog"
-    ],
-    "community" => [
-      "href" => "/community",
-      "name" => "Community"
     ]
   ];
 

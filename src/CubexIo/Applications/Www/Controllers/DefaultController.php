@@ -7,8 +7,10 @@ namespace CubexIo\Applications\Www\Controllers;
 
 use Cubex\Facade\Redirect;
 use Cubex\View\RenderGroup;
+use Cubex\View\TemplatedView;
 use CubexIo\Applications\Www\Views\About;
 use CubexIo\Applications\Www\Views\Docs;
+use CubexIo\Applications\Www\Views\Documentation;
 use CubexIo\Applications\Www\Views\Index;
 use CubexIo\Applications\Www\Views\Licence;
 use CubexIo\Applications\Www\Views\Section\DownloadButton;
@@ -27,24 +29,46 @@ class DefaultController extends BaseController
         new DownloadButton()
       )
     );
-    return new Index();
+    return new TemplatedView('Homepage', $this);
   }
 
-  public function renderDocs()
+  public function renderDocs($page = 'README')
   {
     $this->includePrettify();
+
+    $docRoot = $this->getConfig()
+    ->get("documentation")
+    ->getStr("source_path", 'docs');
+    if(substr($docRoot, 0, 1) !== '/' && substr($docRoot, 1, 1) !== ':')
+    {
+      $docRoot = dirname(WEB_ROOT) . DS . $docRoot . DS;
+    }
+
+    $sidebar = file_get_contents($docRoot . 'contents.md');
+    if(file_exists($docRoot . $page . '.md'))
+    {
+      $content = file_get_contents($docRoot . $page . '.md');
+    }
+    else
+    {
+      \Redirect::to('/docs')->with("error", 404)->now();
+      return null;
+    }
+
     $this->layout()->setData("caption", "Cubex Documentation");
-    return new Docs();
+    return $this->createView(new Documentation($sidebar, $content));
   }
 
   public function renderAbout()
   {
-    return new About();
+    $this->layout()->setData("caption", "About Cubex");
+    return new TemplatedView('About', $this);
   }
 
   public function renderLicence()
   {
-    return new Licence();
+    $this->layout()->setData("caption", "Cubex Licence Information");
+    return new TemplatedView('Licence', $this);
   }
 
   public function getRoutes()
@@ -53,9 +77,12 @@ class DefaultController extends BaseController
       "/$"           => "index",
       "/get-started" => "index",
       "/about"       => "about",
-      "/docs(.*)"    => "docs",
+      "/docs"        => [
+        '/'       => 'docs',
+        '/{page}' => 'docs'
+      ],
       "/licen(c|s)e" => "licence",
-      "/community"   => "http://phabricator.cubex.io/",
+      "/phabricator" => "@301!http://phabricator.cubex.io/",
       "/blog"        => "http://blog.cubex.io/",
     );
   }

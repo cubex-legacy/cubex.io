@@ -1,0 +1,24 @@
+<?php
+/**
+ * @author: brooke.bryan
+ *        Application: Www
+ * @var $this \CubexIo\Applications\Www\Views\Documentation
+ */
+?>
+<br/>
+<div class="row-fluid">
+  <div class="span3"><?php echo $this->getSidebar(); ?></div>
+  <div class="span9">
+    <?php
+    if($this->hasError())
+    {
+      ?>
+      <div class="alert alert-error">
+        <?php echo $this->getError(); ?>
+      </div>
+    <?php
+    }
+    ?>
+    <?php echo $this->getContent(); ?>
+  </div>
+</div>
