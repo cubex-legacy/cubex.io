@@ -32,7 +32,7 @@ class DefaultController extends BaseController
     return new TemplatedView('Homepage', $this);
   }
 
-  public function renderDocs($page = 'README')
+  public function renderDocs($page = 'welcome')
   {
     $this->includePrettify();
 
@@ -45,7 +45,7 @@ class DefaultController extends BaseController
     }
 
     $sidebar = file_get_contents($docRoot . 'contents.md');
-    if(file_exists($docRoot . $page . '.md'))
+    if(file_exists($docRoot . $page . '.md') || $page == 'welcome')
     {
       $content = file_get_contents($docRoot . $page . '.md');
     }

@@ -43,12 +43,19 @@ class MainNav extends ViewModel
   {
     $nav = new Partial("<li class=\"%s\"><a href=\"%s\">%s</a></li>");
 
-    foreach($this->_navItems as $navItemKey => $navItem)
+    foreach($this->_navItems as $navItem)
     {
-      $active = strpos($this->request()->path(), $navItem["href"]) === 0;
-      $class  = $active ? "active" : "";
-      $href   = $navItem["href"];
-      $name   = $navItem["name"];
+      if($navItem["href"] === '/')
+      {
+        $active = $this->request()->path() === '/';
+      }
+      else
+      {
+        $active = strpos($this->request()->path(), $navItem["href"]) === 0;
+      }
+      $class = $active ? "active" : "";
+      $href  = $navItem["href"];
+      $name  = $navItem["name"];
 
       $nav->addElement($class, $href, $name);
     }
