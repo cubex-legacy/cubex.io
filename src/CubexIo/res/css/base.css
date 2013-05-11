@@ -136,3 +136,14 @@ header .download a:hover {
   color: #c04d27;
   text-shadow: 0 2px 0 #fbbc6f;
 }
+
+
+
+textarea,input
+{
+  width:100%;
+}
+
+textarea{
+  height:600px;
+}

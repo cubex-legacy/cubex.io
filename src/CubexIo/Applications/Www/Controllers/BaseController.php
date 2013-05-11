@@ -33,6 +33,14 @@ abstract class BaseController extends WebpageController
     );
   }
 
+  public function includePrettify()
+  {
+    $this->requireJs(
+      'https://google-code-prettify.googlecode.com/svn/'
+      . 'loader/run_prettify.js?skin=desert'
+    );
+  }
+
   public function preRender()
   {
     $this->nest("mainNav", new MainNav($this->getRouteResult()));

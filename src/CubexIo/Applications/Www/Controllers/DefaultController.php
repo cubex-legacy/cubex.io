@@ -18,6 +18,7 @@ class DefaultController extends BaseController
 {
   public function renderIndex()
   {
+    $this->includePrettify();
     $this->requireCss("home");
     $this->nest(
       "cubesNav",
@@ -31,6 +32,7 @@ class DefaultController extends BaseController
 
   public function renderDocs()
   {
+    $this->includePrettify();
     $this->layout()->setData("caption", "Cubex Documentation");
     return new Docs();
   }
