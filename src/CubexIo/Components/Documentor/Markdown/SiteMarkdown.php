@@ -9,6 +9,8 @@ use dflydev\markdown\MarkdownExtraParser;
 
 class SiteMarkdown extends MarkdownExtraParser
 {
+  const DEFAULT_TAB_WIDTH = 2;
+
   function _doCodeBlocks_callback($matches)
   {
     $codeblock = $matches[1];
