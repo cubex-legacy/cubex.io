@@ -51,6 +51,7 @@ class DefaultController extends BaseController
     }
     else
     {
+      var_dump($docRoot . $page . '.md');die;
       \Redirect::to('/docs')->with("error", 404)->now();
       return null;
     }
@@ -79,7 +80,7 @@ class DefaultController extends BaseController
       "/about"       => "about",
       "/docs"        => [
         '/'       => 'docs',
-        '/{page}' => 'docs'
+        '/(?P<page>.*)/' => 'docs'
       ],
       "/licen(c|s)e" => "licence",
       "/phabricator" => "@301!http://phabricator.cubex.io/",
