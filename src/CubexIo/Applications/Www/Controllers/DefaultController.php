@@ -37,8 +37,8 @@ class DefaultController extends BaseController
     $this->includePrettify();
 
     $docRoot = $this->getConfig()
-    ->get("documentation")
-    ->getStr("source_path", 'docs');
+               ->get("documentation")
+               ->getStr("source_path", 'docs');
     if(substr($docRoot, 0, 1) !== '/' && substr($docRoot, 1, 1) !== ':')
     {
       $docRoot = dirname(WEB_ROOT) . DS . $docRoot . DS;
@@ -51,7 +51,6 @@ class DefaultController extends BaseController
     }
     else
     {
-      var_dump($docRoot . $page . '.md');die;
       \Redirect::to('/docs')->with("error", 404)->now();
       return null;
     }
@@ -79,7 +78,7 @@ class DefaultController extends BaseController
       "/get-started" => "index",
       "/about"       => "about",
       "/docs"        => [
-        '/'       => 'docs',
+        '/'              => 'docs',
         '/(?P<page>.*)/' => 'docs'
       ],
       "/licen(c|s)e" => "licence",

@@ -15,6 +15,8 @@ abstract class BaseController extends WebpageController
 
   public function preProcess()
   {
+    $this->setTitle($this->t("Cubex : The Creativity PHP Framework"));
+
     $this->addMeta(
       "google-site-verification",
       "OMmhqGbIMw4L8Es3hOT4fLs_44nBVI3aJ3MsYUCYy6c"
