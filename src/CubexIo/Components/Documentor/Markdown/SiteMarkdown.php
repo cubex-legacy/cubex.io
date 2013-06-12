@@ -11,6 +11,12 @@ class SiteMarkdown extends MarkdownExtraParser
 {
   const DEFAULT_TAB_WIDTH = 2;
 
+  public function __construct(array $configuration = null)
+  {
+    parent::__construct($configuration);
+    $this->configureMarkdownParser(self::CONFIG_TAB_WIDTH, 2);
+  }
+
   function _doCodeBlocks_callback($matches)
   {
     $codeblock = $matches[1];
